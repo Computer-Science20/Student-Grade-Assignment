@@ -7,7 +7,7 @@ let goBtnEl = document.getElementById("go");
 let menuEl = document.getElementById("menu");
 
 // Global Variable
-let grades = [60, 70, 80, 65, 90, 83];
+let grades = [60, 70, 80, 65, 90, 83,];
 let maxGrade = 100; // grade values should be b/t 0 and max
 
 // Display Data
@@ -71,7 +71,7 @@ function lastTo50() {
   // Set the grade of the last student to 50.
   outputEl.innerHTML = "Last grade to 50";
   for (let i = 0; i < grades.length; i++) {
-    grades[5] = 50;
+    grades[grades.length - 1] = 50;
   }
   
 }
@@ -79,30 +79,51 @@ function lastTo50() {
 function randomTo100() {
   // Set the grade of a random student to 100.
   outputEl.innerHTML = "Random grade to 100";
-  
+  grades[randomInt = Math.floor(Math.random() * grades.length)] = 100;
 }
 
 function addRandomGrade() {
   // Add a random grade between 0 and 100 to the end of the array.
   outputEl.innerHTML = "Add random grade";
-  for (let i = 0; i < grades.length; i++) 
-    grades.push(Math.random() * 600);
+  grades.push(randomInt = Math.random() * 100);
   
 }
 
 function removeLastGrade() {
   // Remove the last grade.
   outputEl.innerHTML = "Remove the last grade";
+  grades.pop();
 }
 
 function countBelow50() {
   // Count how many grades are below 50.  Output the result.
   outputEl.innerHTML = "Count grades below 50";
+  let count = 0;
+  for (let i = 0; i < grades.length; i++) {
+    if (grades[i] < 50) {
+    count++;
+    }
+    outputEl.innerHTML = count;
+  }
 }
+
+let outputStr = "";
+    let divHeight;
+    for (let i = 0; i < grades.length; i++) {
+      divHeight = (grades[i] / maxGrade) * 600; // Scale grades to fit in array visualizer container
+      outputStr += `<div style="height:${divHeight}px"></div>`;
+    }
+    containerEl.innerHTML = outputStr;
+
 
 function lowGradesTo50() {
   // Change all grades that are below 50 to be equal to 50.
   outputEl.innerHTML = "Change low grades to 50";
+  for (let i = 0; i < grades.length; i++) {
+  if (grades[i] < 50) {
+    grades[i] = 50;
+  }
+ }
 }
 
 function increaseGradesBy10() {
