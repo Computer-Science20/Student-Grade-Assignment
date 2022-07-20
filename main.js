@@ -45,6 +45,17 @@ function mainMenu() {
   drawArray();
 }
 
+// Function to draw current state of grades array
+function drawArray() {
+    let outputStr = "";
+    let divHeight;
+    for (let i = 0; i < grades.length; i++) {
+      divHeight = (grades[i] / maxGrade) * 600; // Scale grades to fit in array visualizer container
+      outputStr += `<div style="height:${divHeight}px"></div>`;
+    }
+    containerEl.innerHTML = outputStr;
+  }
+
 // ******************************************************
 // MENU SELECTION FUNCTIONS
 // ******************************************************
@@ -86,21 +97,16 @@ function lowGradesTo50() {
 function increaseGradesBy10() {
   // Increase each grade by 10%.
   outputEl.innerHTML = "Increase all grades by 10%";
+  for (let i = 0; i < grades.length; i++) {
+    grades[i] += 10;
+  }
 }
 
 function decreaseGradesBy10() {
   // Decrease each grade by 10%.
   outputEl.innerHTML = "Decrease all grades by 10%";
-}
-
-
-// Function to draw current state of grades array
-function drawArray() {
-  let outputStr = "";
-  let divHeight;
   for (let i = 0; i < grades.length; i++) {
-    divHeight = (grades[i] / maxGrade) * 600; // Scale grades to fit in array visualizer container
-    outputStr += `<div style="height:${divHeight}px"></div>`;
+    grades[i] -= 10;
   }
-  containerEl.innerHTML = outputStr;
 }
+
