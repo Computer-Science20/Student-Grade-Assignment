@@ -62,21 +62,32 @@ function drawArray() {
 function firstTo40() {
   // Set the grade of the first student to 40.
   outputEl.innerHTML = "First grade to 40";
+  for (let i = 0; i < grades.length; i++) {
+    grades[0] = 40;
+  }
 }
 
 function lastTo50() {
   // Set the grade of the last student to 50.
   outputEl.innerHTML = "Last grade to 50";
+  for (let i = 0; i < grades.length; i++) {
+    grades[5] = 50;
+  }
+  
 }
 
 function randomTo100() {
   // Set the grade of a random student to 100.
   outputEl.innerHTML = "Random grade to 100";
+  
 }
 
 function addRandomGrade() {
   // Add a random grade between 0 and 100 to the end of the array.
   outputEl.innerHTML = "Add random grade";
+  for (let i = 0; i < grades.length; i++) 
+    grades.push(Math.random() * 600);
+  
 }
 
 function removeLastGrade() {
